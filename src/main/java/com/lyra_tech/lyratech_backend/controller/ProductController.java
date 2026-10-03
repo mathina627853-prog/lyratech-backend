@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://lyratech.local", "http://localhost"})
+@CrossOrigin(origins = {
+        "http://lyratech.local",
+        "http://localhost:8080"
+})
 @RequestMapping("/api/products")
 public class ProductController {
 
