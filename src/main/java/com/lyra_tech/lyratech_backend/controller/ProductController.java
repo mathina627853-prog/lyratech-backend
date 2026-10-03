@@ -10,8 +10,8 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = {
-        "http://lyratech.local",
-        "http://localhost:8080"
+        "http://localhost:8080",
+        "http://lyratech.local"
 })
 @RequestMapping("/api/products")
 public class ProductController {

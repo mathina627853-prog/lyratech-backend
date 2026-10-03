@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://lyratech.local", "http://localhost"})
+@CrossOrigin(origins = {
+        "http://localhost:8080",
+        "http://lyratech.local"
+})
 @RequestMapping("/api/categories")
 public class CategoryController {
 
@@ -34,10 +37,11 @@ public class CategoryController {
 
         return categoryRepository.findById(id)
                 .orElseThrow(() ->
-                        new RuntimeException("Category not found"));
+                        new RuntimeException(
+                                "Category not found"));
     }
 
-    // POST - Add new category
+    // CREATE category
     @PostMapping
     public Category createCategory(
             @RequestBody Category category) {
@@ -45,7 +49,7 @@ public class CategoryController {
         return categoryRepository.save(category);
     }
 
-    // PUT - Update category
+    // UPDATE category
     @PutMapping("/{id}")
     public Category updateCategory(
             @PathVariable Integer id,
@@ -63,7 +67,7 @@ public class CategoryController {
         return categoryRepository.save(existingCategory);
     }
 
-    // DELETE - Delete category
+    // DELETE category
     @DeleteMapping("/{id}")
     public String deleteCategory(
             @PathVariable Integer id) {
